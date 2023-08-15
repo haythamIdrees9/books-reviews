@@ -2,6 +2,12 @@
     display: flex;
 }
 
+.f-col{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .a-center{
     align-items: center;
 }

@@ -1,24 +1,63 @@
-<div class="header f-row" [class.opened]="isOpened">
-  <div class="main-view f-row a-center j-between">
-    <h1>Books<span>Reviews</span></h1>
-    <img
-      class="icon"
-      (click)="toggleOpenState($event)"
-      src="assets/images/search.svg"
-      width="16"
-      height="16"
-      alt="search"
-    />
+<header class="header f-row" [class.opened]="isSearchOpened">
+  <div class="main-view w-100p f-row a-center j-between">
+    <div class="menu-container f-row a-center">
+      <button class="btn-resting"  (click)="toggleMenuState($event)" aria-label="Toggle Menu">
+        <img class="icon menu-icon"
+        src="assets/images/menu.svg"
+        width="16"
+        height="16"
+        alt="menu"
+        />
+      </button>
+      <h1>Books<span>Reviews</span></h1>
+    </div>
+    <div class="pages-container f-row a-center j-end">
+      <nav class="pages">
+        <ul class="f-row">
+          <li *ngFor="let route of menuRouts; let index = index">
+            <a
+              class="w-100p"
+              [routerLink]="route.path"
+              [class.selected]="selectedRouteIndex === index"
+              >{{ route.label }}</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <button class="btn-resting"  (click)="toggleSearchState($event)" aria-label="Toggle Search">
+        <img
+        class="icon search"
+        src="assets/images/search.svg"
+        width="16"
+        height="16"
+        alt="search"
+        />
+      </button>
+      <div class="search-field f-row a-center j-between">
+      <button class="btn-resting"  (click)="toggleSearchState($event)" aria-label="Back to Main">
+        <img
+          (click)="toggleSearchState($event)"
+          src="assets/images/close.svg"
+          width="20"
+          height="20"
+          alt="back"
+        />
+      </button>
+        <input #search_field type="text" placeholder="Book name..." aria-label="Search for Books" />
+      </div>
+    </div>
   </div>
-  <div class="search-field f-row a-center j-between">
-    <img
-      class="icon"
-      (click)="toggleOpenState($event)"
-      src="assets/images/back.svg"
-      width="24"
-      height="24"
-      alt="search"
-    />
-    <input #search_field type="text" placeholder="Book name..." />
+
+  <div class="menu" [class.menu-opened]="isMenuOpened">
+    <div class="content">
+      <div class="logo f-row a-center">Books<span>Reviews</span></div>
+      <nav>
+        <ul>
+          <li class="w-100p" *ngFor="let route of menuRouts">
+            <a class="w-100p" [routerLink]="route.path">{{ route.label }}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
-</div>
+</header>

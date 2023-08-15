@@ -7,21 +7,40 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 })
 export class HeaderComponent {
   @ViewChild('search_field') searchField!:ElementRef ; 
-  isOpened: boolean = false;
+  isSearchOpened: boolean = false;
+  isMenuOpened: boolean = false;
+  menuRouts = [
+    {path:'/home',label:'HOME'},
+    {path:'/books',label:'BOOKS'},
+    {path:'/reviews',label:'REVIEWS'},
+    {path:'/news',label:'NEWS'},
+    {path:'/contact',label:'CONTACTS'},
+  ]
 
-  toggleOpenState(event: Event) {
+  selectedRouteIndex = 1;
+
+  toggleSearchState(event: Event) {
     event.stopPropagation()
-    this.isOpened = !this.isOpened;
-    if(this.isOpened && this.searchField?.nativeElement){
+    this.isSearchOpened = !this.isSearchOpened;
+    if(this.isSearchOpened && this.searchField?.nativeElement){
       setTimeout(()=>{
         this.searchField.nativeElement.focus()
       })
     }
   }
 
+  toggleMenuState(event: Event){
+    event.stopPropagation()
+    this.isMenuOpened = !this.isMenuOpened;
+    this.isSearchOpened = false;
+  }
+  stopPropagation(event:Event){
+    event.stopPropagation()
+  }
 
   @HostListener('document:click')
   onKeydownHandler() {
-    this.isOpened = false;
+    this.isSearchOpened = false;
+    this.isMenuOpened = false;
   }
 }

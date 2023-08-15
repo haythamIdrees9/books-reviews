@@ -1,6 +1,13 @@
 @import "./styles/flex";
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.w-100p{
+  width: 100%;
+}
+.c-pointer{
+  cursor: pointer;
+}

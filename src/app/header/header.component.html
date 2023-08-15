@@ -1,7 +1,7 @@
-<header class="header f-row" [class.opened]="isSearchOpened">
+<header class="header f-row">
   <div class="main-view w-100p f-row a-center j-between">
     <div class="menu-container f-row a-center">
-      <button class="btn-resting"  (click)="toggleMenuState($event)" aria-label="Toggle Menu">
+      <button class="btn-resting c-pointer"  (click)="toggleMenuState($event)" aria-label="Toggle Menu">
         <img class="icon menu-icon"
         src="assets/images/menu.svg"
         width="16"
@@ -24,7 +24,7 @@
           </li>
         </ul>
       </nav>
-      <button class="btn-resting"  (click)="toggleSearchState($event)" aria-label="Toggle Search">
+      <button class="btn-resting c-pointer"  (click)="toggleSearchState($event)" aria-label="Toggle Search">
         <img
         class="icon search"
         src="assets/images/search.svg"
@@ -33,21 +33,8 @@
         alt="search"
         />
       </button>
-      <div class="search-field f-row a-center j-between">
-      <button class="btn-resting"  (click)="toggleSearchState($event)" aria-label="Back to Main">
-        <img
-          (click)="toggleSearchState($event)"
-          src="assets/images/close.svg"
-          width="20"
-          height="20"
-          alt="back"
-        />
-      </button>
-        <input #search_field type="text" placeholder="Book name..." aria-label="Search for Books" />
-      </div>
     </div>
   </div>
-
   <div class="menu" [class.menu-opened]="isMenuOpened">
     <div class="content">
       <div class="logo f-row a-center">Books<span>Reviews</span></div>
@@ -61,3 +48,5 @@
     </div>
   </div>
 </header>
+
+<app-spot-light *ngIf="isSearchOpened" [ariaLabel]="'Search for Books'" [placeholder]="'Book name...'" (onSearch)="onSearch($event)"></app-spot-light>

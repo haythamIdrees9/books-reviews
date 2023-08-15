@@ -1,0 +1,91 @@
+@import "../../../styles/responsive";
+
+.search-field {
+  z-index: 1;
+  transition: all 0.25s;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: show-spot 0.5s forwards;
+  .search-container {
+    position: relative;
+    animation: input-frames 0.5s forwards;
+
+    input {
+      width: 80vw;
+      min-width: 260px;
+      height: 60px;
+      max-width: 800px;
+      background-color: white;
+      border: 1px solid #aaa;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      position: relative;
+      padding: 0.5rem 0.5rem 0.5rem 3rem;
+      outline: none;
+      box-shadow: 0 0 6px #777;
+      font-size: 1rem;
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    .btn-resting {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      .icon {
+        filter: brightness(0) saturate(100%) invert(49%) sepia(0%) saturate(1%)
+          hue-rotate(237deg) brightness(94%) contrast(91%);
+      }
+    }
+    @include responsive("sm") {
+      input {
+        width: 70vw;
+        font-size: 1.2rem;
+      }
+    }
+    @include responsive("md") {
+      input {
+        width: 60vw;
+        font-size: 1.5rem;
+      }
+    }
+    @keyframes input-frames {
+      from {
+        top: -3rem;
+      }
+      to {
+        top: 0;
+      }
+    }
+  }
+  &.closed {
+    .search-container {
+      animation: input-close-frames 0.4s forwards;
+      @keyframes input-close-frames {
+        from {
+            top: 0;
+        }
+        to {
+            top: -2rem;
+        }
+      }
+    }
+  }
+  @keyframes show-spot {
+    from {
+      opacity: 0;
+      backdrop-filter: brightness(100%);
+    }
+    to {
+      opacity: 1;
+      backdrop-filter: blur(2px) brightness(75%);
+    }
+  }
+}

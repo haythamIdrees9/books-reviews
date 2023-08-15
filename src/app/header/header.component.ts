@@ -39,8 +39,13 @@ export class HeaderComponent {
   }
 
   @HostListener('document:click')
-  onKeydownHandler() {
+  backToMainMode() {
     this.isSearchOpened = false;
     this.isMenuOpened = false;
+  }
+
+  onSearch(term:string){
+    console.log('term',term);
+    this.backToMainMode();
   }
 }

@@ -1,0 +1,22 @@
+<div class="search-field f-row a-center j-center" [class.closed]="isSpotLightClosed" (click)="hideSpotLightInput($event)">
+  <div class="search-container">
+    <button class="btn-resting c-pointer"  (click)="search()"  aria-label="Toggle Search">
+        <img
+        class="icon search"
+        src="assets/images/search.svg"
+        width="20"
+        height="20"
+        alt="search"
+        />
+      </button>
+    <input
+      #search_field
+      (click)="stopPropagation($event)"
+      (keyup.enter)="search()"
+      type="text"
+      [placeholder]="placeholder"
+      [attr.aria-label]="ariaLabel"
+      [(ngModel)]="enteredText"
+    />
+  </div>
+</div>

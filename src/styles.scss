@@ -2,7 +2,12 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.x-container{
+  padding: 0.25rem max(1rem,calc(50vw - 600px));
 }
 
 .w-100p{

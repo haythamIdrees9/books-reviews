@@ -1,0 +1,12 @@
+<div class="most-popular-container f-col a-center">
+    <h2>Browse <span>Our Most Popular Categories </span></h2>
+        <ul class="categories-list">
+            <li *ngFor="let category of categories">
+                <img [src]="category.image"  width="40" height="40" [alt]="category.title">
+                <div class="content">
+                    <div class="title">{{category.title}}</div>
+                    <div class="description" [innerHTML]="category.description"></div>
+                </div>
+            </li>
+        </ul>
+</div>

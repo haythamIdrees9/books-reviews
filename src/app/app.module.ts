@@ -8,6 +8,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SpotLightComponent } from './UI/spot-light/spot-light.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryModule } from './category/categories-list.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CategoryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

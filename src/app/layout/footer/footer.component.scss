@@ -1,52 +1,122 @@
+@import "../../../styles/responsive";
+
 #footer {
   width: 100vw;
-  height: 540px;
+  height: max-content;
   background: #323232;
   color: #fdfdfd;
-  padding: 0 max(1rem, calc(50vw - 650px));
+  padding: 0;
   box-sizing: border-box;
+  font-size: 0.8rem;
+
   .sections {
     height: 100%;
-    .section {
-        height: 100%;
-        padding: 1rem;
-        box-sizing: border-box;
-        &:nth-child(1){
 
-            margin: 0 4rem;
-            border-left: 2px solid #252525;
+    .section {
+      height: 100%;
+      padding: 1rem;
+      box-sizing: border-box;
+
+      &:nth-child(1) {
+        margin: 2rem 0;
+      }
+
+      &:nth-child(2) {
+        margin: 2rem 0;
+        border-top: 2px solid #252525;
+        border-bottom: 2px solid #252525;
+      }
+
+      .links {
+        padding: 0;
+
+        &.cols-3 {
+          column-count: 2;
         }
-        &:nth-child(2){
-            margin: 0 4rem;
-            border-right: 2px solid #252525;
-            border-left: 2px solid #252525;
+
+        li {
+          list-style: none;
+          padding: 0.5rem 0;
+          
+          a {
+            color: #8a8a8a;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive("xsm") {
+    font-size: 1rem;
+    .sections .section {
+      padding: 1rem 2rem;
+      .links.cols-3 {
+        column-count: 2;
+      }
+    }
+  }
+
+  @include responsive("sm") {
+    height: 510px;
+    .sections {
+      flex-direction: row;
+      .section {
+        padding: 1rem 0.75rem;
+
+        &:nth-child(1) {
+          margin: 0 0 0 0.5rem;
+          border-left: 2px solid #252525;
+        }
+
+        &:nth-child(2) {
+          margin: 0 0.5rem;
+          border-right: 2px solid #252525;
+          border-left: 2px solid #252525;
         }
         
-      .links {
-        display: grid;
-        column-gap: 4rem;
-        a {
-          &.col-1{
-            grid-column: 1;
-          }
+        .links.cols-3 {
+          column-count: 2;
+        }
+      }
+    }
+  }
 
-          &.col-2 {
-            grid-column: 2;
-          }
+  @include responsive("md") {
+    height: 400px;
+    font-size: 0.9rem;
+    .sections {
+      flex-direction: row;
+      margin: 0;
 
-          &.col-3 {
-            grid-column: 3;
-          }
+      .section {
+        padding: 1rem;
+        .links.cols-3 {
+          column-count: 3;
+        }
+      }
+    }
+  }
 
-          @for $i from 1 through 8 {
-            &.row-#{$i} {
-                grid-row: $i;
-            }
-          }
-          
-          color: #8a8a8a;
-          text-decoration: none;
-          padding: 0.5rem 0;
+  @include responsive("xmd") {
+    padding: 0 max(1rem, calc(50vw - 550px));
+    font-size: 1rem;
+    .sections {
+      flex-direction: row;
+      margin: 0 1rem;
+      .section {
+        padding: 1rem;
+
+        &:nth-child(1) {
+          margin: 0 0 0 1.5rem;
+        }
+
+        &:nth-child(2) {
+          margin: 0 1.5rem;
+        }
+        
+        .links.cols-3 {
+          column-count: 3;
         }
       }
     }

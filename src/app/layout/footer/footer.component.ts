@@ -14,14 +14,14 @@ export class FooterComponent  {
       this.setGridValues()
     })
   }
-
+  
   setGridValues(){
-    this.sections.forEach((section:sectionType) =>{
-        section.links.forEach((link,index) =>{
-          link.column = Math.floor(index / 8) + 1
-          link.row = (index % 8) + 1;
-        })
-    })
+    // this.sections.forEach((section:sectionType) =>{
+    //     section.links.forEach((link,index) =>{
+    //       link.column = Math.floor(index / 8) + 1
+    //       link.row = (index % 8) + 1;
+    //     })
+    // })
   }
 
 }

@@ -1,12 +1,14 @@
 <footer id="footer">
-    <div class="sections f-row">
-        <div class="section" *ngFor="let section of sections">
-            <p>
-                {{section.title}}
-            </p>
-            <div class="links f-col">
-                <a  *ngFor="let link of section.links;" [ngClass]="['col-'+link.column,'row-'+link.row]" [routerLink]="link.path"> {{link.label}}</a>
-            </div>
-        </div>
+  <div class="sections f-col" *ngIf="sections.length">
+    <div class="section" *ngFor="let section of sections">
+      <p>
+        {{ section.title }}
+      </p>
+      <ul class="links" [ngClass]="['cols-' + section.colsSpan]">
+        <li *ngFor="let link of section.links">
+          <a [routerLink]="link.path"> {{ link.label }}</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </footer>

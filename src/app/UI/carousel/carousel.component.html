@@ -1,0 +1,14 @@
+<div class="carousel-container">
+    <h2 class="main-title x-container">{{category}}-{{selectedIndex}}</h2>
+    <div class="items"  [ngStyle]="{'grid-template-columns': 'repeat(' + carouselDummyData.length + ', 1fr)'}" [class.transition-left]="isTransitionEnabled">
+      <div class="item" *ngFor="let item of carouselDummyData;let index = index; let last = last;let first = first"  [ngStyle]="{'left': (index - selectedIndex) * (290) + 'px'}">
+        <div *ngIf="last" #lastItem></div>
+        <div *ngIf="first" #firstItem></div>
+        <img [src]="item.imageSrc" width="200" height="306" [alt]="item.title">
+        <div class="title">{{item.title}}</div>
+        <div class="reviewed-by">{{item.reviewedBy}}</div>
+      </div>
+    </div>
+    <button class="prev" (click)="previousItem()" >Prev</button>
+    <button class="next" (click)="nextItem()">Next</button>
+  </div>

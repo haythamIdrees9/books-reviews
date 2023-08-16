@@ -3,11 +3,13 @@ import { RouterModule } from '@angular/router';
 import { CategoriesListComponent } from './categories-list.component';
 import { MostPopularCategoriesComponent } from './most-popular-categories/most-popular-categories.component';
 import { CommonModule } from '@angular/common';
+import { CarouselComponent } from '../UI/carousel/carousel.component';
 
 @NgModule({
   declarations: [CategoriesListComponent, MostPopularCategoriesComponent],
   imports: [
     CommonModule,
+    CarouselComponent,
     RouterModule.forChild([
       { path: '', component: CategoriesListComponent },
       { path: ':id', component: CategoriesListComponent }]),

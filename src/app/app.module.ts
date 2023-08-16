@@ -15,7 +15,7 @@ import { CategoryModule } from './category/categories-list.module';
     AppComponent,
     HeaderComponent,
     SpotLightComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,53 @@
+@import "../../../styles/responsive";
+
+.carousel-container{
+    background-color: #282828;
+    color: white;
+    padding: 4rem 0;
+    min-height: 500px;
+    .main-title{
+        margin: 1rem 0;
+
+    }
+    .items{
+        position: relative;
+        width: 300px;
+        height: 400px;
+        overflow: hidden;
+        left: 50%;
+        transform: translateX(-50%);
+        .item{
+            position: absolute;
+            top: 0;
+            width: 250px;
+            margin: 0 2rem;
+        }
+        &.transition-left .item{
+            transition: left 0.5s ease-in-out;
+        }
+    }
+
+    @include responsive('sm'){
+        .items{
+            width: 600px;
+            left: 0;
+            transform: none;
+            .item{
+                width: 250px;
+                margin: 0 2rem;
+            }
+        }
+    }
+
+    @include responsive('md'){
+        .items{
+            width: 600;
+            left: 0;
+            transform: none;
+            .item{
+                width: 200px;
+                margin: 0 2rem;
+            }
+        }
+    }
+}

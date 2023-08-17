@@ -1,4 +1,13 @@
 <div class="x-container">
     <!-- <app-most-popular-categories></app-most-popular-categories> -->
 </div>
-<app-carousel [category]="'Fiction'"></app-carousel>
+<app-carousel [category]="'Fiction'" [itemTemplate]="itemTemplate">
+
+</app-carousel>
+
+<ng-template #itemTemplate let-item>
+    <!-- I will add anchor link when I create book page -->
+    <img [src]="item.imageSrc" width="200" height="306" [alt]="item.title" />
+    <div class="title">{{ item.title }}</div>
+    <div class="reviewed-by">{{ item.reviewedBy }}</div>
+  </ng-template>

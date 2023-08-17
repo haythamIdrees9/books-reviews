@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { Observable, defer, take, timer } from 'rxjs';
+import { Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/core';
+import { Observable, take, timer } from 'rxjs';
 
 @Component({
-  selector: 'app-carousel[category]',
+  selector: 'app-carousel[category][itemTemplate]',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   standalone:true,
@@ -12,9 +12,9 @@ import { Observable, defer, take, timer } from 'rxjs';
 export class CarouselComponent {
   @ViewChild('lastItem') lastItem!:ElementRef;
   @ViewChild('firstItem') firstItem!:ElementRef;
-  
+  @Input('itemTemplate') itemTemplate!: TemplateRef<any>;
   @Input('category') category!:string;
-  carouselDummyData = Array(8).fill(0).map((item,index)=> ({imageSrc:'assets/images/the-fever-tree.jpeg', title:'title', author:'author',reviewedBy:'reviewedBy'+index}))
+  carouselDummyData = Array(8).fill(0).map((item,index)=> ({imageSrc:'assets/images/the-fever-tree.jpeg', title:'Lorem ipsum dolor sit amet, consectetur adipiscing elit', author:'author',reviewedBy:'By ADAM SMITH REVIEWED BY JESSICA SMITH'+index}))
 
   selectedIndex = 0;
   isButtonsDisabled = false;

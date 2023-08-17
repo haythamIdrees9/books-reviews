@@ -3,7 +3,7 @@ import { Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/c
 import { Observable, take, timer } from 'rxjs';
 
 @Component({
-  selector: 'app-carousel[category][itemTemplate]',
+  selector: 'app-carousel[title][items][itemTemplate]',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   standalone:true,
@@ -13,8 +13,8 @@ export class CarouselComponent {
   @ViewChild('lastItem') lastItem!:ElementRef;
   @ViewChild('firstItem') firstItem!:ElementRef;
   @Input('itemTemplate') itemTemplate!: TemplateRef<any>;
-  @Input('category') category!:string;
-  carouselDummyData = Array(8).fill(0).map((item,index)=> ({imageSrc:'assets/images/the-fever-tree.jpeg', title:'Lorem ipsum dolor sit amet, consectetur adipiscing elit', author:'author',reviewedBy:'By ADAM SMITH REVIEWED BY JESSICA SMITH'+index}))
+  @Input('title') title!:string;
+  @Input('items') items:Array<any> = [];
 
   selectedIndex = 0;
   isButtonsDisabled = false;
@@ -49,21 +49,19 @@ export class CarouselComponent {
     this.debounceUserClick();
 
 
-    // testing not completed yet TODO: factorize it
     if(this.isElementFullyVisible(this.lastItem)){
       this.isTransitionEnabled = false;
-      setTimeout(()=>{
+      setTimeout(() => {
         this.selectedIndex--;
-        let deleted = this.carouselDummyData.shift();
-        if(deleted){
-          this.carouselDummyData.push(deleted);
+        let deleted = this.items.shift();
+        if (deleted) {
+          this.items.push(deleted);
         }
-      },10)
-
-      setTimeout(()=>{
-        this.isTransitionEnabled = true;
-        this.selectedIndex++;
-      },50)
+        setTimeout(() => {
+          this.isTransitionEnabled = true;
+          this.selectedIndex++;
+        }, 20);
+      }, 10);
     } else {
       this.selectedIndex++;
     }
@@ -84,21 +82,20 @@ export class CarouselComponent {
     }
 
     this.debounceUserClick();
-    // testing not completed yet TODO: factorize it
     if(this.isElementFullyVisible(this.firstItem)){
       this.isTransitionEnabled = false;
       setTimeout(()=>{
         this.selectedIndex++;
-        let deleted = this.carouselDummyData.pop();
+        let deleted = this.items.pop();
         if(deleted){
-          this.carouselDummyData.unshift(deleted);
+          this.items.unshift(deleted);
         }
+        
+        setTimeout(()=>{
+          this.isTransitionEnabled = true;
+          this.selectedIndex--;
+        },20)
       },10)
-
-      setTimeout(()=>{
-        this.isTransitionEnabled = true;
-        this.selectedIndex--;
-      },50)
     } else {
       this.selectedIndex--;
     }

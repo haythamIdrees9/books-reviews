@@ -5,10 +5,12 @@
   color: white;
   padding: 4rem 0;
   min-height: 500px;
-  .main-title {
-    margin: 1rem 0;
-  }
+  
   .items-container {
+    .main-title {
+        margin: 1rem 0;
+        padding: 0 32px;
+      }
     height: 400px;
     position: relative;
     width: max-content;
@@ -70,7 +72,7 @@
 
     @include responsive("xl") {
       .items {
-        width: 1254px;
+        width: 1244px;
       }
     }
   }

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, retry } from 'rxjs';
+import { firebaseKey } from '../app.component';
 
-export const firebaseKey = "https://fir-learning-1-71674-default-rtdb.firebaseio.com" 
 export type category = {
   title: string
   description: string, 

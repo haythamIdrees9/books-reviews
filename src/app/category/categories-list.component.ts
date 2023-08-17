@@ -1,15 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BookService } from '../services/book.service';
+import { CategoryBooks, bookModel } from '../models/book';
 
 @Component({
   selector: 'app-categories-list',
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss']
 })
-export class CategoriesListComponent {
+export class CategoriesListComponent implements OnInit {
 
-  items = Array(8).fill(0).map((item,index)=> ({imageSrc:'assets/images/the-fever-tree.jpeg', title:'Lorem ipsum dolor sit amet, consectetur adipiscing elit', author:'author',reviewedBy:'By ADAM SMITH REVIEWED BY JESSICA SMITH'+index}))
-  items1 = Array(8).fill(0).map((item,index)=> ({imageSrc:'assets/images/the-fever-tree.jpeg', title:'Lorem ipsum dolor sit amet, consectetur adipiscing elit', author:'author',reviewedBy:'By ADAM SMITH REVIEWED BY JESSICA SMITH'+index}))
-  items2 = Array(8).fill(0).map((item,index)=> ({imageSrc:'assets/images/the-fever-tree.jpeg', title:'Lorem ipsum dolor sit amet, consectetur adipiscing elit', author:'author',reviewedBy:'By ADAM SMITH REVIEWED BY JESSICA SMITH'+index}))
-  items3 = Array(8).fill(0).map((item,index)=> ({imageSrc:'assets/images/the-fever-tree.jpeg', title:'Lorem ipsum dolor sit amet, consectetur adipiscing elit', author:'author',reviewedBy:'By ADAM SMITH REVIEWED BY JESSICA SMITH'+index}))
+  loadingBooks = [{ title: "nonfiction", items: Array(9).fill(0)},
+                  { title: "fiction", items: Array(9).fill(0)},{ title: "children`s", items: Array(9).fill(0)},{ title: "self-improvement", items: Array(9).fill(0)}]
+  booksLists:Array<CategoryBooks> = [];
+  
+  constructor(private bookService:BookService){
+
+  }
+
+  ngOnInit(): void {
+    this.bookService.getCategoriesBooks().subscribe((categories:{[title:string]:Array<bookModel>})=>{
+      
+      for (const key in categories) {
+        this.booksLists.push({title:key,items:categories[key]});
+      }
+      const categoryOrder = ['nonfiction', 'fiction', 'children`s', 'self-improvement'];
+      this.booksLists.sort((categoryA, categoryB) => {
+        const indexA = categoryOrder.indexOf(categoryA.title);
+        const indexB = categoryOrder.indexOf(categoryB.title);
+        return indexA - indexB;
+      });
+      
+    })
+  }
+
 
 }

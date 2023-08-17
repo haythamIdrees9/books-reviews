@@ -47,8 +47,11 @@ export class CarouselComponent {
     }
 
     this.debounceUserClick();
+    this.handleNextItem();
 
+  }
 
+  private handleNextItem(){
     if(this.isElementFullyVisible(this.lastItem)){
       this.isTransitionEnabled = false;
       setTimeout(() => {
@@ -82,6 +85,10 @@ export class CarouselComponent {
     }
 
     this.debounceUserClick();
+    this.handlePreviousItem();
+  }
+
+  private handlePreviousItem(){
     if(this.isElementFullyVisible(this.firstItem)){
       this.isTransitionEnabled = false;
       setTimeout(()=>{

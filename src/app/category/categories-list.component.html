@@ -1,14 +1,37 @@
 <div class="x-container">
     <app-most-popular-categories></app-most-popular-categories>
 </div>
-<app-carousel [title]="'Fiction'" [items]="items" [itemTemplate]="itemTemplate"></app-carousel>
-<app-carousel [title]="'Fiction--'" [items]="items1" [itemTemplate]="itemTemplate"></app-carousel>
-<app-carousel [title]="'Fiction++'" [items]="items2" [itemTemplate]="itemTemplate"></app-carousel>
-<app-carousel [title]="'Fictionasd'" [items]="items3" [itemTemplate]="itemTemplate"></app-carousel>
+
+<ng-container *ngFor="let list of booksLists">
+    <app-carousel [title]="list.title" [items]="list.items" [itemTemplate]="itemTemplate"></app-carousel>
+</ng-container>
+<ng-container *ngIf="booksLists.length === 0">
+    <ng-container *ngFor="let list of loadingBooks">
+        <app-carousel [title]="list.title" [items]="list.items" [itemTemplate]="loadingSkeleton"> </app-carousel>
+    </ng-container>
+</ng-container>
+
+<ng-template #loadingSkeleton >
+        <div class="loading-container">
+            <app-loading-skeleton [width]="'200px'" [height]="'300px'"></app-loading-skeleton>
+            <div class="title f-row">
+                    <app-loading-skeleton [width]="'80px'" [height]="'32px'"></app-loading-skeleton>
+                    <app-loading-skeleton [width]="'80px'" [height]="'32px'"></app-loading-skeleton>
+            </div>
+            <div class="description">
+                <div class="f-row">
+                    <app-loading-skeleton [width]="'60px'" [height]="'32px'"></app-loading-skeleton>
+                    <app-loading-skeleton [width]="'100px'" [height]="'32px'"></app-loading-skeleton>
+                </div>
+                <app-loading-skeleton [width]="'60px'" [height]="'32px'"></app-loading-skeleton>
+            </div>
+        </div>
+
+  </ng-template>
 
 <ng-template #itemTemplate let-item>
     <!-- I will add anchor link when I create book page -->
-    <img [src]="item.imageSrc" width="200" height="306" loading="lazy" [alt]="item.title" />
+    <img class="u-none" [src]="item.imageSource" width="200" height="306" loading="lazy" [alt]="item.title" />
     <div class="title">{{ item.title }}</div>
     <div class="reviewed-by">{{ item.reviewedBy }}</div>
   </ng-template>

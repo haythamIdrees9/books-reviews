@@ -10,6 +10,7 @@ import { CategoryService, category } from 'src/app/services/category.service';
 
 export class MostPopularCategoriesComponent implements OnInit {
   categories:Array<category> = [];
+  loadingCategories:Array<boolean> = Array(8).fill(true);
   constructor(private categoryService: CategoryService) {
 
   }

@@ -2,26 +2,33 @@
 
 .carousel-container {
   color: white;
-  padding: 4rem 0;
+  padding: 2rem 0 0 0;
   min-height: 500px;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  &.light{
+  &.light {
     color: #020202;
   }
   .items-container {
     .main-title {
-        margin-bottom: 2rem;
-        padding: 0 32px;
-      }
+      margin-bottom: 2rem;
+      padding: 0;
+      font-size: 1.25rem;
+    }
     height: 400px;
     position: relative;
     width: max-content;
-    padding: 0 4rem;
+    padding: 0;
+    @include responsive("sm") {
+      padding: 0 2.5rem;
+    }
+    @include responsive("md") {
+      padding: 0 4rem;
+    }
     margin: 0 auto;
     .items {
       position: relative;
-      width: 250px;
+      width: 180px;
       height: 400px;
       overflow: hidden;
       left: 50%;
@@ -30,8 +37,7 @@
       .item {
         position: absolute;
         top: 0;
-        width: 200px;
-        margin: 0 2rem;
+        width: 180px;
       }
       &.transition-left .item {
         transition: left 0.5s linear;
@@ -42,42 +48,82 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      padding: 0.75rem;
+      padding: 0.35rem;
       user-select: none;
     }
 
     .next {
-      right: 0;
+      right: -34px;
     }
     .prev {
-      left: 0;
-      img{
-          transform: rotateY(180deg);
+      left: -44px;
+      img {
+        transform: rotateY(180deg);
+      }
+    }
+
+    @include responsive("xsm") {
+
+      .items {
+        .item {
+          width: 200px;
         }
+      }
+
+      .next {
+        right: -50px;
+      }
+      .prev {
+        left: -50px;
+      }
+
     }
 
     @include responsive("sm") {
       .items {
-        width: 500px;
+        width: 442px;
+      }
+
+      .next,
+      .prev {
+        padding: 0.75rem;
+      }
+      .next{
+        right: -20px;
+      }
+      .prev {
+        left: -29px;
       }
     }
 
+
+
     @include responsive("xmd") {
       .items {
-        width: 760px;
+        width: 684px;
+      }
+      .next{
+        right: -20px;
+      }
+      .prev {
+        left: -29px;
       }
     }
 
     @include responsive("mlg") {
       .items {
-        width: 1008px;
+        width: 918px;
       }
     }
 
     @include responsive("xl") {
       .items {
-        width: 1244px;
+        width: 1160px;
       }
     }
+  }
+
+  @include responsive("mlg") {
+    padding: 4rem 0;
   }
 }

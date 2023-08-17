@@ -15,7 +15,7 @@
 
 <ng-template #itemTemplate let-data>
     <!-- I will add anchor link when I create book page -->
-    <img class="u-none" [src]="data.item.imageSource" width="200" height="306" loading="lazy" [alt]="data.item.title" />
+    <img class="card-image" [src]="data.item.imageSource" width="200" height="306" loading="lazy" [alt]="data.item.title" />
     <div class="title {{data.theme}}">{{ data.item.title }}</div>
     <div class="reviewed-by {{data.theme}}">{{ data.item.reviewedBy }}</div>
   </ng-template>

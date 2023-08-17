@@ -1,5 +1,23 @@
-.u-none{
+@import "../../styles/responsive.scss";
+
+.card-image{
     user-select: none;
+    width: 170px;
+    height: 280px;
+    @include responsive('xsm'){
+    width: 200px;
+    height: 300px;
+    }
+
+    // @include responsive("md") {
+    //     width: 170px;
+    //     height: 280px;
+    //   }
+  
+    //   @include responsive("xmd") {
+    //     width: 200px;
+    //     height: 300px;
+    //   }
 }
 
 

@@ -3,13 +3,22 @@
 </div>
 
 <ng-container *ngFor="let list of booksLists">
-    <app-carousel [title]="list.title" [items]="list.items" [itemTemplate]="itemTemplate"></app-carousel>
+    <app-carousel [title]="list.title" [items]="list.items" [background]="list.background" [theme]="list.theme"  [itemTemplate]="itemTemplate"></app-carousel>
+
 </ng-container>
 <ng-container *ngIf="booksLists.length === 0">
     <ng-container *ngFor="let list of loadingBooks">
-        <app-carousel [title]="list.title" [items]="list.items" [itemTemplate]="loadingSkeleton"> </app-carousel>
+        <app-carousel [title]="list.title" [items]="list.items" [background]="list.background"  [theme]="list.theme" [itemTemplate]="loadingSkeleton"> </app-carousel>
     </ng-container>
 </ng-container>
+
+
+<ng-template #itemTemplate let-data>
+    <!-- I will add anchor link when I create book page -->
+    <img class="u-none" [src]="data.item.imageSource" width="200" height="306" loading="lazy" [alt]="data.item.title" />
+    <div class="title {{data.theme}}">{{ data.item.title }}</div>
+    <div class="reviewed-by {{data.theme}}">{{ data.item.reviewedBy }}</div>
+  </ng-template>
 
 <ng-template #loadingSkeleton >
         <div class="loading-container">
@@ -29,9 +38,3 @@
 
   </ng-template>
 
-<ng-template #itemTemplate let-item>
-    <!-- I will add anchor link when I create book page -->
-    <img class="u-none" [src]="item.imageSource" width="200" height="306" loading="lazy" [alt]="item.title" />
-    <div class="title">{{ item.title }}</div>
-    <div class="reviewed-by">{{ item.reviewedBy }}</div>
-  </ng-template>

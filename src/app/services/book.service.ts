@@ -2,21 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, retry } from 'rxjs';
 import { firebaseKey } from '../app.component';
-import {  bookModel } from '../models/book';
+import { bookModel } from '../models/book';
 
+
+export type categoriesResponse = { [title: string]: { items: Array<bookModel>, metaData: { [key: string]: string } } }
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  
+
   constructor(private http: HttpClient) {
   }
 
-    getCategoriesBooks():Observable<{[title:string]:Array<bookModel>}>{
+  getCategoriesBooks(): Observable<categoriesResponse> {
     const URL = `${firebaseKey}/dashboard-categories.json`
-    return this.http.get<{[title:string]:Array<bookModel>}>(URL).pipe(retry(3));
+    return this.http.get<categoriesResponse>(URL).pipe(retry(3));
   }
 
 }

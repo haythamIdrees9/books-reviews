@@ -3,7 +3,7 @@ import { Component, ElementRef, Input, TemplateRef, ViewChild } from '@angular/c
 import { Observable, take, timer } from 'rxjs';
 
 @Component({
-  selector: 'app-carousel[title][items][itemTemplate]',
+  selector: 'app-carousel[title][items][itemTemplate][theme]',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   standalone:true,
@@ -15,7 +15,9 @@ export class CarouselComponent {
   @Input('itemTemplate') itemTemplate!: TemplateRef<any>;
   @Input('title') title!:string;
   @Input('items') items:Array<any> = [];
-
+  @Input('background') background:string = '#282828'
+  @Input('theme') theme:string = 'light'
+  
   selectedIndex = 0;
   isButtonsDisabled = false;
   userClickTime!:number;

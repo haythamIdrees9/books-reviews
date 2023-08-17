@@ -1,4 +1,4 @@
-<div class="carousel-container">
+<div class="carousel-container {{theme}}" [ngStyle]="{background: background}">
   <div class="items-container">
     <h2 class="main-title">{{ title }}-{{selectedIndex}}</h2>
     <div class="items" [ngStyle]="{'grid-template-columns': 'repeat(' + items.length + ', 1fr)'}"
@@ -8,7 +8,7 @@
           <div *ngIf="last" #lastItem></div>
           <div *ngIf="first" #firstItem></div>
           <ng-container *ngIf="itemTemplate">
-            <ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{ $implicit: item }"></ng-container>
+            <ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{ $implicit: {item,theme} }"></ng-container>
         </ng-container>
         </div>
       </div>

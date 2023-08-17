@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../services/book.service';
+import { BookService, categoriesResponse } from '../services/book.service';
 import { CategoryBooks, bookModel } from '../models/book';
 
 @Component({
@@ -9,8 +9,11 @@ import { CategoryBooks, bookModel } from '../models/book';
 })
 export class CategoriesListComponent implements OnInit {
 
-  loadingBooks = [{ title: "nonfiction", items: Array(9).fill(0)},
-                  { title: "fiction", items: Array(9).fill(0)},{ title: "children`s", items: Array(9).fill(0)},{ title: "self-improvement", items: Array(9).fill(0)}]
+  loadingBooks = [{ title: "nonfiction", items: Array(9).fill(0),background:'#F6F6F6',theme:'light'},
+                  { title: "fiction", items: Array(9).fill(0),background:'url("assets/images/moon.png")',theme:'dark'},
+                  { title: "children`s", items: Array(9).fill(0),background:'#F6F6F6',theme:'light'},
+                  { title: "self-improvement", items: Array(9).fill(0),background:'url("assets/images/cloud.jpg")',theme:'dark'}
+                ]
   booksLists:Array<CategoryBooks> = [];
   
   constructor(private bookService:BookService){
@@ -18,10 +21,11 @@ export class CategoriesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.bookService.getCategoriesBooks().subscribe((categories:{[title:string]:Array<bookModel>})=>{
+    this.bookService.getCategoriesBooks().subscribe((categories:categoriesResponse)=>{
       
       for (const key in categories) {
-        this.booksLists.push({title:key,items:categories[key]});
+        const {background,theme} = categories[key].metaData;
+        this.booksLists.push({title:key,items:categories[key].items,background,theme});
       }
       const categoryOrder = ['nonfiction', 'fiction', 'children`s', 'self-improvement'];
       this.booksLists.sort((categoryA, categoryB) => {
@@ -29,7 +33,6 @@ export class CategoriesListComponent implements OnInit {
         const indexB = categoryOrder.indexOf(categoryB.title);
         return indexA - indexB;
       });
-      
     })
   }
 

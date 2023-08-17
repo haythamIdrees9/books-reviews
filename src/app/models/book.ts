@@ -8,4 +8,6 @@ export interface bookModel {
 export interface CategoryBooks {
     title: string;
     items: bookModel[];
+    background:string;
+    theme:string;
   }

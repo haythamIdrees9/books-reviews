@@ -2,6 +2,25 @@
     user-select: none;
 }
 
+
+.title{
+&.light{
+        color: #020202;
+    }
+    &.dark{
+        color: #FBFBFB;
+    }
+}
+.reviewed-by{
+    &.light{
+        color: #7C7C7C;
+    }
+    &.dark{
+        color: #81AB1B;
+    }
+    
+}
+
 .loading-container{
 
     .title{

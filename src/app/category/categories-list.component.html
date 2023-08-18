@@ -17,7 +17,8 @@
     <!-- I will add anchor link when I create book page -->
     <img class="card-image" [src]="data.item.imageSource" width="200" height="306" loading="lazy" [alt]="data.item.title" />
     <div class="title {{data.theme}}">{{ data.item.title }}</div>
-    <div class="reviewed-by {{data.theme}}">{{ data.item.reviewedBy }}</div>
+    <div class="author {{data.theme}}">BY {{ data.item.author }}</div>
+    <div class="reviewed-by {{data.theme}}">REVIEWED BY {{ data.item.reviewedBy }}</div>
   </ng-template>
 
 <ng-template #loadingSkeleton >
@@ -28,11 +29,8 @@
                     <app-loading-skeleton [width]="'80px'" [height]="'32px'"></app-loading-skeleton>
             </div>
             <div class="description">
-                <div class="f-row">
-                    <app-loading-skeleton [width]="'60px'" [height]="'32px'"></app-loading-skeleton>
-                    <app-loading-skeleton [width]="'100px'" [height]="'32px'"></app-loading-skeleton>
-                </div>
-                <app-loading-skeleton [width]="'60px'" [height]="'32px'"></app-loading-skeleton>
+                <app-loading-skeleton [width]="'60px'" [height]="'16px'"></app-loading-skeleton>
+                <app-loading-skeleton [width]="'100px'" [height]="'16px'"></app-loading-skeleton>
             </div>
         </div>
 

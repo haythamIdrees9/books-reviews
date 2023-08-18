@@ -9,6 +9,7 @@ import { SpotLightComponent } from './UI/spot-light/spot-light.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryModule } from './category/categories-list.module';
+import { LoadingSkeletonComponent } from './UI/loading-skeleton/loading-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CategoryModule } from './category/categories-list.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CategoryModule
+    CategoryModule,
+    LoadingSkeletonComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

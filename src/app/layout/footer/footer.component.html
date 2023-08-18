@@ -1,12 +1,27 @@
 <footer id="footer">
-  <div class="sections f-col" *ngIf="sections.length">
-    <div class="section" *ngFor="let section of sections">
-      <p>
-        {{ section.title }}
-      </p>
-      <ul class="links" [ngClass]="['cols-' + section.colsSpan]">
+  <div class="sections f-col">
+    <ng-container *ngIf="sections.length === 0">
+      <div class="section loading"  *ngFor="let section of loadingSkeleton" [ngClass]="['cols-' + section.colsSpan]">
+        <p>
+          {{ section.title }}
+        </p>
+        <ul class="links" [ngClass]="['cols-' + section.colsSpan]">
         <li *ngFor="let link of section.links">
-          <a [routerLink]="link.path"> {{ link.label }}</a>
+          <app-loading-skeleton [width]="'80px'" [height]="'15px'"></app-loading-skeleton>
+        </li>
+      </ul>
+    </div>
+    </ng-container>
+      <div class="section" *ngFor="let section of sections">
+        <p>
+          {{ section.title }}
+        </p>
+        <ul class="links" [ngClass]="['cols-' + section.colsSpan]">
+        <li *ngFor="let link of section.links">
+          <a *ngIf="link.isHref ; else routerLinkPath" [href]="link.path" target="_blank"> {{ link.label }}</a>
+          <ng-template #routerLinkPath> 
+            <a [routerLink]="link.path"> {{ link.label }}</a>
+          </ng-template>
         </li>
       </ul>
     </div>

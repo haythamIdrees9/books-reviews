@@ -53,6 +53,14 @@
       transform: translateY(-50%);
       padding: 0.35rem;
       user-select: none;
+      background-color: white;
+      border: 1px solid #cdcdcd;
+      height: 29px;
+      img{
+        filter: invert(100%) sepia(0%) saturate(3806%) hue-rotate(27deg) brightness(94%) contrast(69%);
+        width: 16px;
+        height: 16px;
+      }
     }
 
     .next {
@@ -90,6 +98,11 @@
       .next,
       .prev {
         padding: 0.75rem;
+        height: 46px;
+        img{
+          width: 20px;
+          height: 20px;
+        }
       }
       .next{
         right: -20px;
@@ -105,6 +118,12 @@
       }
       .next,
       .prev {
+        padding: 0.75rem;
+        height: 34px;
+        img{
+          width: 16px;
+          height: 16px;
+        }
         padding: 0.5rem;
       }
       .next{
@@ -121,6 +140,12 @@
       }
       .next,
       .prev {
+        padding: 0.75rem;
+        height: 46px;
+        img{
+          width: 20px;
+          height: 20px;
+        }
         padding: 0.75rem;
       }
       .next{

@@ -27,6 +27,7 @@ export class CategoriesListComponent implements OnInit {
         const {background,theme} = categories[key].metaData;
         this.booksLists.push({title:key,items:categories[key].items,background,theme});
       }
+      
       const categoryOrder = ['nonfiction', 'fiction', 'children`s', 'self-improvement'];
       this.booksLists.sort((categoryA, categoryB) => {
         const indexA = categoryOrder.indexOf(categoryA.title);

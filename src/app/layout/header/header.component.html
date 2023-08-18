@@ -14,11 +14,10 @@
     <div class="pages-container f-row a-center j-end">
       <nav class="pages">
         <ul class="f-row">
-          <li *ngFor="let route of menuRouts; let index = index">
+          <li *ngFor="let route of menuRouts; let index = index" [class.selected]="selectedRouteIndex === index">
             <a
               class="w-100p"
               [routerLink]="route.path"
-              [class.selected]="selectedRouteIndex === index"
               >{{ route.label }}</a
             >
           </li>
@@ -35,12 +34,13 @@
       </button>
     </div>
   </div>
+  
   <div class="menu" [class.menu-opened]="isMenuOpened">
     <div class="content">
       <div class="logo f-row a-center">Books<span>Reviews</span></div>
       <nav>
         <ul>
-          <li class="w-100p" *ngFor="let route of menuRouts">
+          <li class="w-100p" *ngFor="let route of menuRouts; let index = index" [class.selected]="selectedRouteIndex === index">
             <a class="w-100p" [routerLink]="route.path">{{ route.label }}</a>
           </li>
         </ul>

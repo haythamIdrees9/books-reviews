@@ -7,5 +7,4 @@ export const firebaseKey = "https://fir-learning-1-71674-default-rtdb.firebaseio
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'books-reviews';
 }

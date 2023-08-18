@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CategoryService, category } from 'src/app/services/category.service';
 
 @Component({
@@ -8,15 +9,21 @@ import { CategoryService, category } from 'src/app/services/category.service';
 })
 
 
-export class MostPopularCategoriesComponent implements OnInit {
+export class MostPopularCategoriesComponent implements OnInit, OnDestroy {
   categories:Array<category> = [];
   loadingCategories:Array<boolean> = Array(8).fill(true);
+  streamSubscription = new Subscription();
   constructor(private categoryService: CategoryService) {
 
   }
+
   ngOnInit(): void {
-    this.categoryService.getMostPopularCategories().subscribe((categories:Array<category>) => {
+    this.streamSubscription = this.categoryService.getMostPopularCategories().subscribe((categories:Array<category>) => {
       this.categories = categories;
     })
+  }
+
+  ngOnDestroy(): void {
+    this.streamSubscription.unsubscribe()
   }
 }

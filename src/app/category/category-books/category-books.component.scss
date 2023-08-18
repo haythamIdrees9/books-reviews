@@ -1,0 +1,49 @@
+@import "../../../styles/responsive.scss";
+
+.card-image {
+  user-select: none;
+  width: 170px;
+  height: 280px;
+  @include responsive("xsm") {
+    width: 200px;
+    height: 317px;
+  }
+}
+
+a{
+    text-decoration: none;
+}
+
+.title {
+  &.light {
+    color: #020202;
+  }
+  &.dark {
+    color: #fbfbfb;
+  }
+  margin-bottom: 0.5rem;
+  line-height: 2;
+}
+.author,
+.reviewed-by {
+  &.light {
+    color: #7c7c7c;
+  }
+  &.dark {
+    color: #81ab1b;
+  }
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.loading-container {
+  .title {
+    margin: 1rem 0;
+    :first-child {
+      margin-right: 1rem;
+    }
+  }
+  .description :first-child {
+    margin: 0 1rem 1rem 0;
+  }
+}

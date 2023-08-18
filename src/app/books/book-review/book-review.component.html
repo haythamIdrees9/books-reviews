@@ -1,0 +1,49 @@
+<div class="container x-container" >
+    <a class="back f-row a-center" routerLink="/"> <img src="assets/images/next.svg" width="20" height="20" alt="home page"> back</a>
+    <div class="book-container" *ngIf="!notFound && !book">
+        <app-card>
+            <div class="content f-col a-center j-center" >
+                <div class="book-cover">
+                    <app-loading-skeleton [width]="'100%'" [height]="'100%'"></app-loading-skeleton>
+                </div>
+                <div class="details">
+                    <app-loading-skeleton [width]="'200px'" [height]="'13px'"></app-loading-skeleton>
+
+                    <div class="description">
+                        <app-loading-skeleton [width]="'200px'" [height]="'61px'"></app-loading-skeleton>
+                    </div>
+                <div class="publish">
+                    <app-loading-skeleton [width]="'200px'" [height]="'30px'"></app-loading-skeleton>
+                </div>
+                <div class="reviewed-by">
+                    <app-loading-skeleton [width]="'200px'" [height]="'15px'"></app-loading-skeleton>
+                </div>
+            </div>
+
+            </div>
+        </app-card>
+    </div>
+    <div class="book-container loaded" *ngIf="!notFound && book">
+        <app-card >
+            <div class="content f-col a-center j-center" >
+                <img class="book-cover" [src]="book.image" [alt]="book.title" height="300" width="200" loading="lazy">
+                <div class="details">
+                    <div class="title">Book: <strong>{{book.title}}</strong></div>
+                <div class="description">{{book.description}}</div>
+                <div class="publish">
+                    published By <strong>{{book.author}}</strong>  at {{book.publishedOn | date:'mediumDate' }} 
+                </div>
+                <div class="reviewed-by">
+                    reviewed By <strong>{{book.reviewedBy}}</strong> 
+                </div>
+            </div>
+        </div>
+    </app-card>
+
+    <!-- :TODO add review section here -->
+</div>
+    <div class="not-found f-col  j-center a-center" *ngIf="notFound">
+        <img src="assets/images/not-found.jpg" width="600" height="400" loading="lazy" alt="">
+        <p> <strong>Sorry</strong>, the book you are looking for could not be found.<br> It may have been removed or the URL is incorrect.<br> Please check the book details and try again.</p>
+    </div>
+</div>

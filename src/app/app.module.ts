@@ -10,6 +10,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryModule } from './category/categories-list.module';
 import { LoadingSkeletonComponent } from './UI/loading-skeleton/loading-skeleton.component';
+import { BookReviewModule } from './books/book-review/book-review.module';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { LoadingSkeletonComponent } from './UI/loading-skeleton/loading-skeleton
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CategoryModule,
-    LoadingSkeletonComponent
+    CategoryModule, // I use eager loading to avoid glitch on screen when reload, will be fixed after finish all requirement
+    LoadingSkeletonComponent,
+    BookReviewModule // I use eager loading to avoid glitch on screen when reload, will be fixed after finish all requirement
   ],
   providers: [],
   bootstrap: [AppComponent]

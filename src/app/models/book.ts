@@ -1,4 +1,4 @@
-export interface bookModel {
+export interface CategoryBookModel {
     imageSource: string;
     title: string;
     author: string;
@@ -7,7 +7,17 @@ export interface bookModel {
 
 export interface CategoryBooks {
     title: string;
-    items: bookModel[];
+    items: CategoryBookModel[];
     background:string;
     theme:string;
+  }
+
+  export interface BookModel{
+    id:string;
+    image:string;
+    title:string;
+    author:string;
+    reviewedBy:string;
+    publishedOn:string;
+    description:string;
   }

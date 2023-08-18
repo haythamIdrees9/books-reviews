@@ -3,36 +3,6 @@
 </div>
 
 <ng-container *ngFor="let list of booksLists">
-    <app-carousel [title]="list.title" [items]="list.items" [background]="list.background" [theme]="list.theme"  [itemTemplate]="itemTemplate"></app-carousel>
-
+    <app-category-books [title]="list.title" [items]="list.items" [background]="list.background" [theme]="list.theme" [loading]="isLadingState" ></app-category-books>
 </ng-container>
-<ng-container *ngIf="booksLists.length === 0">
-    <ng-container *ngFor="let list of loadingBooks">
-        <app-carousel [title]="list.title" [items]="list.items" [background]="list.background"  [theme]="list.theme" [itemTemplate]="loadingSkeleton"> </app-carousel>
-    </ng-container>
-</ng-container>
-
-
-<ng-template #itemTemplate let-data>
-    <!-- I will add anchor link when I create book page -->
-    <img class="card-image" [src]="data.item.imageSource" width="200" height="306" loading="lazy" [alt]="data.item.title" />
-    <div class="title {{data.theme}}">{{ data.item.title }}</div>
-    <div class="author {{data.theme}}">BY {{ data.item.author }}</div>
-    <div class="reviewed-by {{data.theme}}">REVIEWED BY {{ data.item.reviewedBy }}</div>
-  </ng-template>
-
-<ng-template #loadingSkeleton >
-        <div class="loading-container">
-            <app-loading-skeleton [width]="'200px'" [height]="'300px'"></app-loading-skeleton>
-            <div class="title f-row">
-                    <app-loading-skeleton [width]="'80px'" [height]="'32px'"></app-loading-skeleton>
-                    <app-loading-skeleton [width]="'80px'" [height]="'32px'"></app-loading-skeleton>
-            </div>
-            <div class="description">
-                <app-loading-skeleton [width]="'60px'" [height]="'16px'"></app-loading-skeleton>
-                <app-loading-skeleton [width]="'100px'" [height]="'16px'"></app-loading-skeleton>
-            </div>
-        </div>
-
-  </ng-template>
 

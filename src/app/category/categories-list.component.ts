@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService, categoriesResponse } from '../services/book.service';
-import { CategoryBooks, bookModel } from '../models/book';
+import { CategoryBooks } from '../models/book';
+import { CategoryService, categoriesResponse } from '../services/category.service';
 
 @Component({
   selector: 'app-categories-list',
@@ -9,20 +9,20 @@ import { CategoryBooks, bookModel } from '../models/book';
 })
 export class CategoriesListComponent implements OnInit {
 
-  loadingBooks = [{ title: "nonfiction", items: Array(9).fill(0),background:'#F6F6F6',theme:'light'},
+  booksLists:Array<CategoryBooks> = [{ title: "nonfiction", items: Array(9).fill(0),background:'#F6F6F6',theme:'light'},
                   { title: "fiction", items: Array(9).fill(0),background:'url("assets/images/moon.png")',theme:'dark'},
                   { title: "children`s", items: Array(9).fill(0),background:'#F6F6F6',theme:'light'},
                   { title: "self-improvement", items: Array(9).fill(0),background:'url("assets/images/cloud.jpg")',theme:'dark'}
                 ]
-  booksLists:Array<CategoryBooks> = [];
-  
-  constructor(private bookService:BookService){
+  isLadingState: boolean = true;
+  constructor(private categoryService:CategoryService){
 
   }
 
   ngOnInit(): void {
-    this.bookService.getCategoriesBooks().subscribe((categories:categoriesResponse)=>{
-      
+    this.categoryService.getCategoriesBooks().subscribe((categories:categoriesResponse)=>{
+      this.isLadingState = false;
+      this.booksLists = [];
       for (const key in categories) {
         const {background,theme} = categories[key].metaData;
         this.booksLists.push({title:key,items:categories[key].items,background,theme});

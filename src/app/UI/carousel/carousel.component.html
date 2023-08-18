@@ -4,7 +4,7 @@
     <div class="items" [ngStyle]="{'grid-template-columns': 'repeat(' + items.length + ', 1fr)'}"
     [class.transition-left]="isTransitionEnabled">
     <div class="item" #item_element *ngFor=" let item of items; let index = index; let last = last; let first = first"
-    [ngStyle]="{ left: ((index - selectedIndex) * (item_element.offsetWidth + 40)) + 'px'}">
+    [ngStyle]="{ left: ((index - selectedIndex) * (item_element.offsetWidth + 36)) + 'px'}">
           <div *ngIf="last" #lastItem></div>
           <div *ngIf="first" #firstItem></div>
           <ng-container *ngIf="itemTemplate">

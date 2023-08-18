@@ -23,6 +23,9 @@
       padding: 0 2.5rem;
     }
     @include responsive("md") {
+      padding: 0 2rem;
+    }
+    @include responsive("xmd") {
       padding: 0 4rem;
     }
     margin: 0 auto;
@@ -65,7 +68,7 @@
     @include responsive("xsm") {
 
       .items {
-        .item {
+        &,.item {
           width: 200px;
         }
       }
@@ -81,7 +84,7 @@
 
     @include responsive("sm") {
       .items {
-        width: 442px;
+        width: 437px;
       }
 
       .next,
@@ -96,11 +99,29 @@
       }
     }
 
-
+    @include responsive("md") {
+      .items {
+        width: 673px;
+      }
+      .next,
+      .prev {
+        padding: 0.5rem;
+      }
+      .next{
+        right: -12px;
+      }
+      .prev {
+        left: -12px;
+      }
+    }
 
     @include responsive("xmd") {
       .items {
-        width: 684px;
+        width: 673px;
+      }
+      .next,
+      .prev {
+        padding: 0.75rem;
       }
       .next{
         right: -20px;
@@ -112,13 +133,13 @@
 
     @include responsive("mlg") {
       .items {
-        width: 918px;
+        width: 909px;
       }
     }
 
     @include responsive("xl") {
       .items {
-        width: 1160px;
+        width: 1145px;
       }
     }
   }

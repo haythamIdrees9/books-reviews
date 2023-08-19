@@ -50,7 +50,7 @@
     .next,
     .prev {
       position: absolute;
-      top: 50%;
+      top: calc(50% + 40px);
       transform: translateY(-50%);
       padding: 0.35rem;
       user-select: none;
@@ -61,6 +61,7 @@
         filter: invert(100%) sepia(0%) saturate(3806%) hue-rotate(27deg) brightness(94%) contrast(69%);
         width: 16px;
         height: 16px;
+        user-select: none;
       }
       @include activeHover{
         background-color: #82b808;

@@ -8,3 +8,11 @@
     @content;
   }
 }
+
+@mixin filter($filter-amount) { 
+  -webkit-filter: #{$filter-amount};
+  -moz-filter: #{$filter-amount};
+  -ms-filter: #{$filter-amount}; 
+  -o-filter: #{$filter-amount}; 
+  filter: #{$filter-amount}; 
+}

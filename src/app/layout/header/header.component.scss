@@ -1,5 +1,6 @@
 @import "../../../styles/variables";
 @import "../../../styles/responsive";
+@import "../../../styles/mixins";
 
 .header {
   background-color: #82b808;
@@ -22,7 +23,7 @@
 
 
   .icon {
-    filter: invert(100%);
+    @include filter(invert(100%));
     &.menu-icon {
       margin-right: 0.75rem;
     }

@@ -1,4 +1,5 @@
 @import "../../../styles/responsive";
+@import "../../../styles/mixins";
 
 .container {
   margin: 2rem 0 2rem 0;
@@ -13,8 +14,8 @@
       color: #82b808;
       img {
         transform: rotateZ(180deg) translateX(8px);
-        filter: invert(71%) sepia(57%) saturate(2127%) hue-rotate(33deg)
-          brightness(90%) contrast(94%);
+        @include filter(invert(71%) sepia(57%) saturate(2127%) hue-rotate(33deg)
+          brightness(90%) contrast(94%));
       }
     }
   }

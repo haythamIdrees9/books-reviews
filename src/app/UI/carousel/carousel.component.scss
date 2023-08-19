@@ -58,7 +58,7 @@
       border: 1px solid #cdcdcd;
       height: 29px;
       img{
-        filter: invert(100%) sepia(0%) saturate(3806%) hue-rotate(27deg) brightness(94%) contrast(69%);
+        @include filter(invert(100%) sepia(0%) saturate(3806%) hue-rotate(27deg) brightness(94%) contrast(69%));
         width: 16px;
         height: 16px;
         user-select: none;
@@ -67,7 +67,7 @@
         background-color: #82b808;
         border-color: #82b808;
         img{
-          filter: invert(100%);
+          @include filter(invert(100%));
         }
       }
     }

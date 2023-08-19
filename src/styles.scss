@@ -16,7 +16,7 @@ body {
     padding: 0.25rem max(1rem, 50vw - 600px) 0.25rem max(1rem, 50vw - 540px);
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1450px) {
   body::-webkit-scrollbar {
     width: 6px;
   }

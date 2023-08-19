@@ -1,4 +1,5 @@
 @import "../../../styles/responsive.scss";
+@import "../../../styles/mixins";
 
 .most-popular-container {
   padding: 1rem 0;
@@ -19,7 +20,7 @@
     display: grid;
     padding: 0;
     img {
-      filter: brightness(0) saturate(100%) invert(76%) sepia(43%) saturate(6369%) hue-rotate(41deg) brightness(101%) contrast(94%);
+      @include filter(brightness(0) saturate(100%) invert(76%) sepia(43%) saturate(6369%) hue-rotate(41deg) brightness(101%) contrast(94%));
     }
     grid-template-columns: 1fr;
     grid-auto-flow: row;

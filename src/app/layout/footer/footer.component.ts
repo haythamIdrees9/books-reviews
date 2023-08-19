@@ -1,27 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FooterService, sectionType } from './footer.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent  {
-  sections:Array<sectionType> = [];
+export class FooterComponent implements OnInit, OnDestroy {
+  sections: Array<sectionType> = [];
+  loadingSkeleton = [
+    { title: "NAVIGATION", colsSpan: 1, links: Array(5).fill(true) },
+    { title: "CATEGORIES", colsSpan: 3, links: Array(23).fill(true) },
+    { title: "FOLLOW US", colsSpan: 1, links: Array(3).fill(true) }
+  ];
+  streamSubscription = new Subscription();
   constructor(private footerService: FooterService) {
-    this.footerService.sections.subscribe(sections=>{
+
+  }
+  ngOnInit(): void {
+    this.streamSubscription = this.footerService.sections.subscribe(sections => {
       this.sections = sections;
-      this.setGridValues()
     })
   }
-  
-  setGridValues(){
-    // this.sections.forEach((section:sectionType) =>{
-    //     section.links.forEach((link,index) =>{
-    //       link.column = Math.floor(index / 8) + 1
-    //       link.row = (index % 8) + 1;
-    //     })
-    // })
-  }
 
+  ngOnDestroy(): void {
+    this.streamSubscription.unsubscribe();
+  }
 }

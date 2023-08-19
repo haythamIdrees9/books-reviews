@@ -1,3 +1,8 @@
-<div class="category-container x-container">
+<div class="x-container">
     <app-most-popular-categories></app-most-popular-categories>
 </div>
+
+<ng-container *ngFor="let list of booksLists">
+    <app-category-books [title]="list.title" [items]="list.items" [background]="list.background" [theme]="list.theme" [loading]="isLadingState" ></app-category-books>
+</ng-container>
+

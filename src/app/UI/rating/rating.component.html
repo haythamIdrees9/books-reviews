@@ -1,0 +1,6 @@
+    <span class="stars" 
+    (click)="rateItem()"
+    (mouseenter)="calculateHoveredPercent($event)"
+    (mousemove)="calculateHoveredPercent($event)"
+    (mouseleave)="onMouseLeave()"
+    [ngStyle]="{ 'background': 'linear-gradient(90deg, gold '+hoveredPercent+'%, white '+hoveredPercent+'%)' }">★★★★★</span>

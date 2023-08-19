@@ -1,0 +1,90 @@
+@import "../../../styles/responsive.scss";
+
+.card-image {
+  user-select: none;
+  width: 170px;
+  height: 280px;
+  @include responsive("xsm") {
+    width: 200px;
+    height: 317px;
+  }
+}
+
+.book-card{
+    text-decoration: none;
+    position: relative;
+    height: max-content;
+    display: block;
+    img {
+      position: relative;
+      top: 0;
+      opacity: 1;
+      transition: all 0.5s;
+    }
+  
+    &::before {
+      content: "Discover More About This Book and Share Your Review";
+      background-color: white;
+      color: black;
+      font-size: 0.8rem;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      right: 50%;
+      bottom: 50%;
+      border-radius: 50%;
+      border: 2px solid white;
+      transform:  translate(50%, 50%);
+      opacity: 0;
+      transition: all 0.5s;
+      width: 120px;
+      padding: 1rem;
+      height: 120px;
+      z-index: 1;
+      box-shadow: 0px 2px 4px rgb(0, 0, 0.1);
+    }
+  
+    &:hover {
+      opacity: 0.6;
+  
+      &::before {
+       opacity: 1;
+      }
+    }
+}
+
+.title {
+  &.light {
+    color: #020202;
+  }
+  &.dark {
+    color: #fbfbfb;
+  }
+  margin-bottom: 0.5rem;
+  line-height: 2;
+}
+.author,
+.reviewed-by {
+  &.light {
+    color: #7c7c7c;
+  }
+  &.dark {
+    color: #81ab1b;
+  }
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.loading-container {
+  .title {
+    margin: 1rem 0;
+    :first-child {
+      margin-right: 1rem;
+    }
+  }
+  .description :first-child {
+    margin: 0 1rem 1rem 0;
+  }
+}

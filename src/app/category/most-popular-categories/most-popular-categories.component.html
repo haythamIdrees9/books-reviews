@@ -1,6 +1,6 @@
 <div class="most-popular-container f-col a-center">
     <h2>Browse <span>Our Most Popular Categories </span></h2>
-        <ul class="categories-list">
+        <ul class="categories-list" *ngIf="categories.length">
             <li *ngFor="let category of categories">
                 <img [src]="category.image"  width="40" height="40" [alt]="category.title">
                 <div class="content">
@@ -9,4 +9,18 @@
                 </div>
             </li>
         </ul>
+
+            <ul class="categories-list" *ngIf="categories.length === 0">
+                <li *ngFor="let category of loadingCategories">
+                    <app-loading-skeleton [width]="'40px'" [height]="'40px'"></app-loading-skeleton>
+                    <div class="content">
+                        <div class="title">
+                            <app-loading-skeleton [width]="'100px'" [height]="'30px'"></app-loading-skeleton>
+                        </div>
+                        <div class="description">
+                            <app-loading-skeleton [width]="'100px'" [height]="'31px'"></app-loading-skeleton>
+                        </div>
+                    </div>
+                </li>
+            </ul>
 </div>

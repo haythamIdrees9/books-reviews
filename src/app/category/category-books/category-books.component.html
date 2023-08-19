@@ -1,0 +1,33 @@
+
+<ng-container *ngIf="loading; else dataLoaded">
+    <app-carousel [title]="title" [items]="items" [background]="background" [theme]="theme"  [itemTemplate]="loadingSkeleton"></app-carousel>
+</ng-container>
+
+<ng-template #dataLoaded>
+    <app-carousel [title]="title" [items]="items" [background]="background" [theme]="theme"  [itemTemplate]="itemTemplate"></app-carousel>
+</ng-template>
+
+<ng-template #itemTemplate let-data>
+    <!-- I will add anchor link when I create book page -->
+    <a class="book-card" [routerLink]="'/books/'+data.item.id">
+        <img class="card-image" [src]="data.item.imageSource" width="200" height="306" loading="lazy" [alt]="data.item.title" />
+        <div class="title {{data.theme}}">{{ data.item.title }}</div>
+        <div class="author {{data.theme}}">BY {{ data.item.author }}</div>
+        <div class="reviewed-by {{data.theme}}">REVIEWED BY {{ data.item.reviewedBy }}</div>
+    </a>
+  </ng-template>
+
+<ng-template #loadingSkeleton >
+        <div class="loading-container">
+            <app-loading-skeleton [width]="'200px'" [height]="'300px'"></app-loading-skeleton>
+            <div class="title f-row">
+                    <app-loading-skeleton [width]="'80px'" [height]="'32px'"></app-loading-skeleton>
+                    <app-loading-skeleton [width]="'80px'" [height]="'32px'"></app-loading-skeleton>
+            </div>
+            <div class="description">
+                <app-loading-skeleton [width]="'60px'" [height]="'16px'"></app-loading-skeleton>
+                <app-loading-skeleton [width]="'100px'" [height]="'16px'"></app-loading-skeleton>
+            </div>
+        </div>
+
+  </ng-template>

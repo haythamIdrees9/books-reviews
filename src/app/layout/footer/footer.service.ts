@@ -35,7 +35,7 @@ export class FooterService {
       title: 'FOLLOW US',colsSpan:1, links: [
         { path: 'https://www.facebook.com/haytham.idrees.73/', label: 'Facebook', isHref: true },
         { path: 'https://twitter.com/haytham_idrees', label: 'twitter', isHref: true },
-        { path: 'https://www.facebook.com/haytham.idrees.73/', label: 'Rss', isHref: true } // no link exit for Really Simple Syndication
+        { path: 'https://rss.com/', label: 'Rss', isHref: true } // no link exit for Really Simple Syndication
       ]
     }
   ];

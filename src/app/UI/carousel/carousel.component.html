@@ -1,0 +1,18 @@
+<div class="carousel-container {{theme}}" [ngStyle]="{background: background}">
+  <div class="items-container">
+    <h2 class="main-title">{{ title }}</h2>
+    <div class="items" [ngStyle]="{'grid-template-columns': 'repeat(' + items.length + ', 1fr)'}"
+    [class.transition-left]="isTransitionEnabled">
+    <div class="item" #item_element *ngFor=" let item of items; let index = index; let last = last; let first = first"
+    [ngStyle]="{ left: ((index - selectedIndex) * (item_element.offsetWidth + 36)) + 'px'}">
+          <div *ngIf="last" #lastItem></div>
+          <div *ngIf="first" #firstItem></div>
+          <ng-container *ngIf="itemTemplate">
+            <ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{ $implicit: {item,theme} }"></ng-container>
+        </ng-container>
+        </div>
+      </div>
+      <button class="prev c-pointer" (click)="previousItem()"> <img src="assets/images/next.svg" width="20" height="20" alt="previous card"> </button>
+      <button class="next c-pointer" (click)="nextItem()"> <img src="assets/images/next.svg" width="20" height="20" alt="next card"> </button>
+    </div>
+</div>

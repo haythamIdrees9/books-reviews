@@ -45,7 +45,6 @@ export class HeaderComponent {
   }
 
   onSearch(term:string){
-    console.log('term',term);
     this.backToMainMode();
   }
 }

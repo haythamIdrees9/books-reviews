@@ -16,17 +16,17 @@
       padding: 0;
       font-size: 1.25rem;
     }
-    height: 440px;
+    height: 498px;
     position: relative;
     width: max-content;
     padding: 0;
-    @include responsive("sm") {
+    @include mobileFirst("sm") {
       padding: 0 2.5rem;
     }
-    @include responsive("md") {
+    @include mobileFirst("md") {
       padding: 0 2rem;
     }
-    @include responsive("xmd") {
+    @include mobileFirst("xmd") {
       padding: 0 4rem;
     }
     margin: 0 auto;
@@ -82,7 +82,7 @@
       }
     }
 
-    @include responsive("xsm") {
+    @include mobileFirst("xsm") {
 
       .items {
         &,.item {
@@ -99,7 +99,7 @@
 
     }
 
-    @include responsive("sm") {
+    @include mobileFirst("sm") {
       .items {
         width: 437px;
       }
@@ -121,7 +121,7 @@
       }
     }
 
-    @include responsive("md") {
+    @include mobileFirst("md") {
       .items {
         width: 673px;
       }
@@ -143,7 +143,7 @@
       }
     }
 
-    @include responsive("xmd") {
+    @include mobileFirst("xmd") {
       .items {
         width: 673px;
       }
@@ -165,20 +165,31 @@
       }
     }
 
-    @include responsive("mlg") {
+    @include mobileFirst("mlg") {
+      .main-title{
+        font-size: 2.7rem;
+      }
       .items {
         width: 909px;
       }
     }
 
-    @include responsive("xl") {
+    @include mobileFirst("xl") {
       .items {
         width: 1145px;
       }
     }
+    @include mobileFirst("xxl") {
+      .items {
+        width: 1382px;
+      }
+    }
+  
+
   }
 
-  @include responsive("mlg") {
+  @include mobileFirst("mlg") {
     padding: 4rem 0;
   }
+
 }

@@ -11,6 +11,7 @@ export type sectionType = {
     isHref?: boolean;
     column?:number;
     row?:number;
+    selected?:boolean;
   }[];
 }
 
@@ -23,7 +24,7 @@ export class FooterService {
     {
       title: 'NAVIGATION',colsSpan:1, links: [
         { path: '/home', label: 'Home'  },
-        { path: '/books', label: 'Books'  },
+        { path: '/books', label: 'Books', selected:true  },
         { path: '/reviews', label: 'Reviews'  },
         { path: '/news', label: 'News' },
         { path: '/contact', label: 'Contact' }]

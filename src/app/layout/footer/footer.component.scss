@@ -38,17 +38,20 @@
         li {
           list-style: none;
           padding: 0.5rem 0;
-          
+
           a {
             color: #8a8a8a;
             text-decoration: none;
+          }
+          &.selected a{
+            color: #81ab1b;
           }
         }
       }
     }
   }
 
-  @include responsive("xsm") {
+  @include mobileFirst("xsm") {
     font-size: 1rem;
     .sections{
       &.cols-1.loading {
@@ -63,7 +66,7 @@
     }
   }
 
-  @include responsive("sm") {
+  @include mobileFirst("sm") {
     height: 510px;
     .sections {
       flex-direction: row;
@@ -92,7 +95,7 @@
     }
   }
 
-  @include responsive("md") {
+  @include mobileFirst("md") {
     height: 400px;
     font-size: 0.9rem;
     .sections {
@@ -102,7 +105,7 @@
       .section {
         padding: 1rem;
         &.cols-3.loading {
-          @include responsive('md'){
+          @include mobileFirst('md'){
             width: 453px;
           }
         }
@@ -113,7 +116,7 @@
     }
   }
 
-  @include responsive("xmd") {
+  @include mobileFirst("xmd") {
     padding: 0 max(1rem, calc(50vw - 550px));
     font-size: 1rem;
     .sections {

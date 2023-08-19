@@ -99,7 +99,7 @@
   }
 
 
-  @include responsive("xsm") {
+  @include mobileFirst("xsm") {
     margin: 2rem 0 4rem 0;
     .book-container {
       margin-top: 2rem;
@@ -139,7 +139,7 @@
         }
       }
   }
-  @include responsive("sm") {
+  @include mobileFirst("sm") {
     .book-container {
         .content {
           .book-cover {
@@ -163,7 +163,7 @@
     }
   }
 
-  @include responsive("md") {
+  @include mobileFirst("md") {
     .not-found {
         min-height: 480px;
         img {
@@ -173,7 +173,7 @@
     }
   }
 
-  @include responsive("xmd") {
+  @include mobileFirst("xmd") {
     .book-container {
         .content {
             .book-cover {

@@ -45,13 +45,13 @@
           hue-rotate(237deg) brightness(94%) contrast(91%));
       }
     }
-    @include responsive("sm") {
+    @include mobileFirst("sm") {
       input {
         width: 70vw;
         font-size: 1.2rem;
       }
     }
-    @include responsive("md") {
+    @include mobileFirst("md") {
       input {
         width: 60vw;
         font-size: 1.5rem;

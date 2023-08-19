@@ -6,6 +6,9 @@
   background-color: #82b808;
   height: 40px;
   position: relative;
+  .arrow{
+    font-size: 12px;
+  }
   .btn-resting{
     width: max-content;
     height: 16px;
@@ -126,7 +129,7 @@
   }
 
 
-   @include responsive('sm'){
+   @include mobileFirst('sm'){
     .menu,.icon.menu-icon {
        display: none;
      }
@@ -137,7 +140,7 @@
  
    }
 
-   @include responsive('lg'){
+   @include mobileFirst('lg'){
     height: 60px;
     h1{
       font-size: 2rem;

@@ -20,8 +20,9 @@
             <a
               class="w-100p"
               [routerLink]="route.path"
-              >{{ route.label }}</a
+              >{{ route.label }} <span *ngIf="selectedRouteIndex === index" class="arrow">▼</span></a
             >
+            
           </li>
         </ul>
       </nav>

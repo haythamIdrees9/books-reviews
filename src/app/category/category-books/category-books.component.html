@@ -10,7 +10,7 @@
 <ng-template #itemTemplate let-data>
     <!-- I will add anchor link when I create book page -->
     <a class="book-card" [routerLink]="'/books/'+data.item.id">
-        <img class="card-image" [src]="data.item.imageSource" width="200" height="306" loading="lazy" [alt]="data.item.title" />
+        <img class="card-image" [src]="data.item.imageSource" width="200" height="306"  [alt]="data.item.title" />
         <div class="title {{data.theme}}">{{ data.item.title }}</div>
         <div class="author {{data.theme}}">BY {{ data.item.author }}</div>
         <div class="reviewed-by {{data.theme}}">REVIEWED BY {{ data.item.reviewedBy }}</div>

@@ -9,11 +9,15 @@ body {
 
 .x-container {
   padding: 0.25rem max(1rem, calc(50vw - 500px));
-  @include responsive("mlg") {
+  
+  @include mobileFirst("mlg") {
     padding: 0.25rem max(1rem, 50vw - 520px) 0.25rem max(1rem, 50vw - 450px);
   }
-  @include responsive("xl") {
+  @include mobileFirst("xl") {
     padding: 0.25rem max(1rem, 50vw - 600px) 0.25rem max(1rem, 50vw - 540px);
+  }
+  @include mobileFirst("xxl") {
+    padding: 0.25rem max(1rem, 50vw - 690px);
   }
 }
 @media screen and (max-width: 1450px) {

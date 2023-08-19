@@ -4,7 +4,7 @@
   user-select: none;
   width: 170px;
   height: 280px;
-  @include responsive("xsm") {
+  @include mobileFirst("xsm") {
     width: 200px;
     height: 317px;
   }
@@ -62,7 +62,6 @@
   &.dark {
     color: #fbfbfb;
   }
-  margin-bottom: 0.5rem;
   line-height: 2;
 }
 .author,

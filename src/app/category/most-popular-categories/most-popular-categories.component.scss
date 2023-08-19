@@ -38,16 +38,17 @@
       .description {
         color: #767676;
         width: 134px;
+        line-height: 1.5;
       }
     }
   }
   
-  @include responsive("xsm") {
+  @include mobileFirst("xsm") {
     min-height: 520px;
     padding: 2rem 0;
     
     h2 {
-      font-size: 1.5em;
+      font-size: 2.1rem;
     }
     
     .categories-list {
@@ -56,7 +57,7 @@
     }
   }
 
-  @include responsive("md") {
+  @include mobileFirst("md") {
     align-items: flex-start;
     min-height: 329px;
     .categories-list {
@@ -64,7 +65,7 @@
     }
   }
 
-  @include responsive("xmd") {
+  @include mobileFirst("xmd") {
     align-items: flex-start;
     padding: 3rem 0;
     font-size: 0.8rem;
@@ -83,7 +84,7 @@
     }
   }
 
-  @include responsive("lg") {
+  @include mobileFirst("lg") {
     padding: 4rem 0;
     font-size: 0.9rem;
     min-height: 379px;
@@ -101,7 +102,7 @@
     }
   }
 
-  @include responsive("xl") {
+  @include mobileFirst("xl") {
     font-size: 1.25rem;
     min-height: 485px;
     .categories-list {
@@ -116,5 +117,18 @@
         }
       }
     }
+  }
+  @include mobileFirst("xxl") {
+    h2 {
+      font-size: 2.8rem;
+    }
+    
+    ul.categories-list li{
+      grid-template-columns: 100px 2fr;
+      img{
+        width: 60px;
+        height: 60px;
+      }
+    } 
   }
 }

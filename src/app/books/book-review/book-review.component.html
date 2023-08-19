@@ -1,3 +1,6 @@
+<app-toast [timeout]="feedbackTimeout - 1000" *ngIf="feedbackText">
+    {{feedbackText}}
+</app-toast>
 <div class="container x-container" >
     <a class="back f-row a-center" routerLink="/"> <img src="assets/images/next.svg" width="20" height="20" alt="home page"> back</a>
     <div class="book-container" *ngIf="!notFound && !book">
@@ -29,12 +32,19 @@
                 <img class="book-cover" [src]="book.image" [alt]="book.title" height="300" width="200" loading="lazy">
                 <div class="details">
                     <div class="title">Book: <strong>{{book.title}}</strong></div>
-                <div class="description">{{book.description}}</div>
-                <div class="publish">
+                <div class="mt-4px">{{book.description}}</div>
+                <div class="mt-4px">
                     published By <strong>{{book.author}}</strong>  at {{book.publishedOn | date:'mediumDate' }} 
                 </div>
-                <div class="reviewed-by">
-                    reviewed By <strong>{{book.reviewedBy}}</strong> 
+                <div class="review-container mt-1rem f-row j-between">
+                    <div>
+                        reviewed By <strong>{{book.reviewedBy}}</strong> 
+                    </div>
+
+                    <div class="rating" aria-label="Rate this book">
+                        <app-rating (onRate)="onRate($event)"></app-rating>
+                      </div>
+
                 </div>
             </div>
         </div>

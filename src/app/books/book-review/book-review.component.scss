@@ -3,6 +3,7 @@
 .container {
   margin: 2rem 0 2rem 0;
   .back {
+    color: black;
     img {
       transform: rotateZ(180deg);
       transition: transform 0.5s;
@@ -51,10 +52,19 @@
         margin-top: 1rem;
         width: 200px;
         line-height: 1.2;
-        .description,
-        .reviewed-by,
-        .publish {
-          margin-top: 0.5rem;
+        .mt-4px {
+          margin-top: 4px;
+        }
+        .mt-1rem {
+          margin-top: 1rem;
+        }
+        .review-container{
+          flex-direction: column;
+          align-items: flex-start;
+          .rating{
+            align-self: flex-end;
+            margin-top: 0.5rem;
+          }
         }
       }
     }
@@ -65,7 +75,7 @@
   }
   .book-container{
     margin: 1rem auto auto auto;
-    min-height: 374px;
+    min-height: 411px;
     box-sizing: border-box;
   }
   .not-found {
@@ -91,6 +101,8 @@
   @include responsive("xsm") {
     margin: 2rem 0 4rem 0;
     .book-container {
+      margin-top: 2rem;
+      min-height: 425px;
         .content {
           font-size: 1rem;
         padding: 1rem;
@@ -102,13 +114,18 @@
           margin-top: 1rem;
           width: 300px;
           line-height: 1.2;
+          .review-container{
+            flex-direction: row;
+            align-items: center;
+            .rating{
+              margin-top: 0;
+            }
+          }
         }
       }
-    }
-
-    .book-container{
-        margin-top: 2rem;
-        min-height: 416px;
+      
+    
+      
       }
     .not-found {
     min-height: 432px;
@@ -167,13 +184,10 @@
         }
       }
     }
-    .book-container{
-        min-height: 467px;
-      }
-      .not-found {
+    .not-found {
         min-height: 507px;
     }
-    .book-container.loaded{
+    .book-container,.book-container.loaded{
         min-height: 492px;
     }
   }

@@ -10,8 +10,49 @@
   }
 }
 
-a{
+.book-card{
     text-decoration: none;
+    position: relative;
+    height: max-content;
+    display: block;
+    img {
+      position: relative;
+      top: 0;
+      opacity: 1;
+      transition: all 0.5s;
+    }
+  
+    &::before {
+      content: "Discover More About This Book and Share Your Review";
+      background-color: white;
+      color: black;
+      font-size: 0.8rem;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      right: 50%;
+      bottom: 50%;
+      border-radius: 50%;
+      border: 2px solid white;
+      transform:  translate(50%, 50%);
+      opacity: 0;
+      transition: all 0.5s;
+      width: 120px;
+      padding: 1rem;
+      height: 120px;
+      z-index: 1;
+      box-shadow: 0px 2px 4px rgb(0, 0, 0.1);
+    }
+  
+    &:hover {
+      opacity: 0.6;
+  
+      &::before {
+       opacity: 1;
+      }
+    }
 }
 
 .title {

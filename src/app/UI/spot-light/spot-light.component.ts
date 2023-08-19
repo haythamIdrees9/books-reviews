@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-spot-light[ariaLabel]',
   templateUrl: './spot-light.component.html',
   styleUrls: ['./spot-light.component.scss'],
 })
-export class SpotLightComponent implements AfterViewInit {
+export class SpotLightComponent implements AfterViewInit, OnDestroy {
   @ViewChild('search_field') searchField!:ElementRef;
   @Input('ariaLabel') ariaLabel!:string;
   @Input('placeholder') placeholder!:string;
@@ -15,6 +15,10 @@ export class SpotLightComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.searchField?.nativeElement?.focus();
+    const bodyElement = document.getElementById('body');
+    if (bodyElement) {
+      bodyElement.style.overflow = 'hidden'; 
+    }
   }
 
   hideSpotLightInput(event:Event){
@@ -31,5 +35,12 @@ export class SpotLightComponent implements AfterViewInit {
     setTimeout(() => {
       this.onSearch.emit(term);
     }, 200);
+  }
+
+  ngOnDestroy(): void {
+    const bodyElement = document.getElementById('body');
+    if (bodyElement) {
+      bodyElement.style.overflow = 'auto'; 
+    }
   }
 }

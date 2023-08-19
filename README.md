@@ -29,4 +29,4 @@ Install the required Node.js dependencies by running the following command:
 
     To run the application in development mode, use the following command:
     ng serve
-    This command will start a development server, and you can access the app in your web browser at [http://localhost:4200]
+    and you can access the app in your web browser at [http://localhost:4200]

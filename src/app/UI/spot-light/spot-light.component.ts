@@ -40,7 +40,7 @@ export class SpotLightComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     const bodyElement = document.getElementById('body');
     if (bodyElement) {
-      bodyElement.style.overflow = 'auto'; 
+      bodyElement.style.overflow = 'hidden auto'; 
     }
   }
 }

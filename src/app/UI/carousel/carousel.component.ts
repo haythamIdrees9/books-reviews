@@ -152,7 +152,6 @@ export class CarouselComponent {
     event.preventDefault();
     const currentX = event.touches[0].clientX;
     const deltaX = currentX - this.touchX;
-    console.log('deltaX',deltaX);
     
     if(deltaX > 50){
       this.onTouchEnd();
